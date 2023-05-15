@@ -1,0 +1,2 @@
+This is our first lab for CSCB07 and it's focused on OOP principles such as classes and objects.
+We are creating a Polynomial class with respective fields and methods to find root, evaluate at x, and adding another polynomial.
