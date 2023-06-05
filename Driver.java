@@ -1,16 +1,29 @@
+import java.io.*;
+import java.util.*;
 public class Driver {
     public static void main(String [] args) {
-        Polynomial p = new Polynomial();
-        System.out.println(p.evaluate(3));
-        double [] c1 = {6,0,0,5};
-        Polynomial p1 = new Polynomial(c1);
-        double [] c2 = {0,-2,0,0,-9};
-        Polynomial p2 = new Polynomial(c2);
-        Polynomial s = p1.add(p2);
-        System.out.println("s(0.1) = " + s.evaluate(0.1));
-        if(s.hasRoot(1))
-            System.out.println("1 is a root of s");
-        else
-            System.out.println("1 is not a root of s");
+        double [] coefficents = {1.0, 2.0, 3.0};
+        int [] exponents = {1, 2, 3};
+        Polynomial p = new Polynomial(coefficents, exponents);
+        System.out.println(p.evaluate(2.0));
+        //Try add method
+        double [] coefficents2 = {1.0, 2.0, 3.0};
+        int [] exponents2 = {1, 2, 3};
+        Polynomial p2 = new Polynomial(coefficents2, exponents2);
+        p2.add(p);
+        System.out.println(p2.evaluate(2.0));
+        //Try multiply method
+        double [] coefficents3 = {1.0, 2.0, 3.0};
+        int [] exponents3 = {1, 2, 3};
+        Polynomial p3 = new Polynomial(coefficents3, exponents3);
+        p3.multiply(p);
+        for (double i: p3.nonzerocoefficents){
+            System.out.println("Coefficents of p3 after multiplication " + i);
+        }
+        for(int i: p3.exponents){
+            System.out.println("Exponents of p3 after multiplication " + i);
+        }
+        //Try saveToFile method
+        p3.saveToFile("test.txt");
     }
 }
